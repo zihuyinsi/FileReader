@@ -1,0 +1,37 @@
+PODS:
+  - CocoaAsyncSocket (7.4.3):
+    - CocoaAsyncSocket/All (= 7.4.3)
+  - CocoaAsyncSocket/All (7.4.3):
+    - CocoaAsyncSocket/GCD
+    - CocoaAsyncSocket/RunLoop
+  - CocoaAsyncSocket/GCD (7.4.3)
+  - CocoaAsyncSocket/RunLoop (7.4.3)
+  - CocoaHTTPServer (2.3):
+    - CocoaAsyncSocket
+    - CocoaLumberjack
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
+  - MJExtension (3.0.10)
+  - Toast (3.0)
+
+DEPENDENCIES:
+  - CocoaHTTPServer
+  - MJExtension
+  - Toast
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
+  CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
+
+PODFILE CHECKSUM: 4f4d9d8474f7093f8c9b0841269ee126dd5139a5
+
+COCOAPODS: 1.0.0

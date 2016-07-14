@@ -1,0 +1,17 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, "8.0"
+
+target 'FileReader' do
+
+#A small, lightweight, embeddable HTTP server for Mac OS X or iOSapplications.
+pod 'CocoaHTTPServer'
+
+#A UIView category that adds Android-style toast notifications to iOS.
+pod 'Toast'
+#pod 'MBProgressHUD'
+
+#A fast and convenient conversion between JSON and model
+pod 'MJExtension'
+
+
+end
