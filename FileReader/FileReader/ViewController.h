@@ -10,5 +10,9 @@
 
 @interface ViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+
+//获取书籍信息
+- (void) gainFileArray;
+
 @end
 

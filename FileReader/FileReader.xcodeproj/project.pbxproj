@@ -35,7 +35,7 @@
 		A95FEF9A1D35D47A002B4AD8 /* SettingBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A95FEF7D1D35D47A002B4AD8 /* SettingBottomBar.m */; };
 		A95FEF9B1D35D47A002B4AD8 /* SettingTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A95FEF7F1D35D47A002B4AD8 /* SettingTopBar.m */; };
 		A95FEF9C1D35D47A002B4AD8 /* ReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95FEF821D35D47A002B4AD8 /* ReaderViewController.m */; };
-		A95FEF9D1D35D47A002B4AD8 /* ScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95FEF841D35D47A002B4AD8 /* ScrollViewController.m */; };
+		A95FEF9D1D35D47A002B4AD8 /* ScrollViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A95FEF841D35D47A002B4AD8 /* ScrollViewController.mm */; };
 		A95FEFA11D35D743002B4AD8 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = A95FEFA01D35D743002B4AD8 /* UIImage+ImageEffects.m */; };
 		A95FEFB01D35DD5A002B4AD8 /* folder in Resources */ = {isa = PBXBuildFile; fileRef = A95FEFAF1D35DD5A002B4AD8 /* folder */; };
 		A95FEFC01D35E02C002B4AD8 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = A95FEFB21D35E02C002B4AD8 /* close.png */; };
@@ -122,7 +122,7 @@
 		A95FEF811D35D47A002B4AD8 /* ReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderViewController.h; sourceTree = "<group>"; };
 		A95FEF821D35D47A002B4AD8 /* ReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderViewController.m; sourceTree = "<group>"; };
 		A95FEF831D35D47A002B4AD8 /* ScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewController.h; sourceTree = "<group>"; };
-		A95FEF841D35D47A002B4AD8 /* ScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewController.m; sourceTree = "<group>"; };
+		A95FEF841D35D47A002B4AD8 /* ScrollViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScrollViewController.mm; sourceTree = "<group>"; };
 		A95FEF9E1D35D500002B4AD8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A95FEF9F1D35D743002B4AD8 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		A95FEFA01D35D743002B4AD8 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 				A95FEF811D35D47A002B4AD8 /* ReaderViewController.h */,
 				A95FEF821D35D47A002B4AD8 /* ReaderViewController.m */,
 				A95FEF831D35D47A002B4AD8 /* ScrollViewController.h */,
-				A95FEF841D35D47A002B4AD8 /* ScrollViewController.m */,
+				A95FEF841D35D47A002B4AD8 /* ScrollViewController.mm */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -609,7 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A95FEF9D1D35D47A002B4AD8 /* ScrollViewController.m in Sources */,
+				A95FEF9D1D35D47A002B4AD8 /* ScrollViewController.mm in Sources */,
 				A95FEF871D35D47A002B4AD8 /* Mark.m in Sources */,
 				A9EE17521D34C8BC004EFF6D /* ViewController.m in Sources */,
 				A95FEFE81D35E201002B4AD8 /* SearchBookViewController.m in Sources */,

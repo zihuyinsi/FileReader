@@ -13,5 +13,7 @@ pod 'Toast'
 #A fast and convenient conversion between JSON and model
 pod 'MJExtension'
 
+#uchardet is a package for mozilla universalchardet.
+pod 'uchardet'
 
 end

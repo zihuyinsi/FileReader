@@ -68,13 +68,14 @@
     _fileTableView.dataSource = self;
     _fileTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview: _fileTableView];
-    
-    [self initView];
+
+    [self gainFileArray];
 }
 
-- (void) initView
+- (void) gainFileArray
 {
     _fileNameArray = [FunctionTools gainFileNameWithPath: DoucmentPath];
+    [_fileTableView reloadData];
     MyLog(@"fileNameArray = %@", _fileNameArray);
 }
 

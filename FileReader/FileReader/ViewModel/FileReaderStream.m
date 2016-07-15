@@ -8,12 +8,16 @@
 
 #import "FileReaderStream.h"
 #import "NSData+EnumerateComponents.h"
+#import "FunctionTools.h"
 
 @interface FileReaderStream () <NSStreamDelegate>
 
 @property (nonatomic, strong) NSInputStream *inputStream;           //文件读入流
 @property (nonatomic, strong) NSOperationQueue *queue;              //操作队列
-@property (nonatomic, strong) NSString *filePath;
+
+@property (nonatomic, strong) NSString *filePath;                   //文件路径
+@property (nonatomic, assign) NSStringEncoding fileEncoding;       //编码格式
+
 @property (nonatomic, strong) NSMutableData *reminder;              //中间缓冲区
 @property (nonatomic, assign) NSInteger lineNumber;                 //当前读取的行数
 @property (nonatomic, copy) NSData *delimiter;                      //分割符
@@ -31,11 +35,24 @@
     {
         //
         self.filePath = filePath;
-        self.delimiter = [@"\n" dataUsingEncoding: NSUTF8StringEncoding];
+        self.fileEncoding = [FunctionTools gainEncodingWithFilePath: filePath];
+        self.delimiter = [@"\n" dataUsingEncoding: self.fileEncoding];
     }
     return self;
 }
 
+- (id) initWithFilePath: (NSString *)filePath andNSStringEncoding: (NSStringEncoding)encodeing
+{
+    self = [super init];
+    if (self)
+    {
+        //
+        self.filePath = filePath;
+        self.fileEncoding = encodeing;
+        self.delimiter = [@"\n" dataUsingEncoding: self.fileEncoding];
+    }
+    return self;
+}
 
 - (void) enumerateLinesUsing
 {
@@ -129,7 +146,8 @@
     
     if (data.length > 0)
     {
-        NSString *line = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+//        NSString *line = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+        NSString *line = [[NSString alloc] initWithData: data encoding:  self.fileEncoding];
         self.callBlock(lineNum, line);
     }
 }

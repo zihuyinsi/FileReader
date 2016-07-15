@@ -19,11 +19,13 @@ PODS:
     - CocoaLumberjack/Default
   - MJExtension (3.0.10)
   - Toast (3.0)
+  - uchardet (0.0.1)
 
 DEPENDENCIES:
   - CocoaHTTPServer
   - MJExtension
   - Toast
+  - uchardet
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: a18c75dca4b08723628a0bacca6e94803d90be91
@@ -31,7 +33,8 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   Toast: 32c59229abfcf41850162b83bb9259dc84372473
+  uchardet: 2b9643afef38946d1d20c124c9e2be6c028b543d
 
-PODFILE CHECKSUM: 4f4d9d8474f7093f8c9b0841269ee126dd5139a5
+PODFILE CHECKSUM: 4506dece9841e63fc18632be689379eb0aa9cfa2
 
 COCOAPODS: 1.0.0

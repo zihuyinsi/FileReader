@@ -92,7 +92,7 @@
     
     [self configListViewHeader];
     
-    _listView = [[UITableView alloc] initWithFrame:CGRectMake(0, 80, self.frame.size.width, self.frame.size.height - 80 - 60)];
+    _listView = [[UITableView alloc] initWithFrame:CGRectMake(0, 80, self.frame.size.width, self.frame.size.height - 80)];
     _listView.delegate = self;
     _listView.dataSource = self;
     _listView.backgroundColor = [UIColor clearColor];

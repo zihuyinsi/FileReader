@@ -25,30 +25,7 @@
     [_window makeKeyAndVisible];
     
     [self performSelectorInBackground: @selector(wirteFileToDocument) withObject: nil];
-//    [self CoreData];
-    
     return YES;
-}
-
-- (void) CoreData
-{
-    // 从应用程序包中加载模型文件
-    NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
-    // 传入模型对象，初始化NSPersistentStoreCoordinator
-    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-    // 构建SQLite数据库文件的路径
-    NSString *docs = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSURL *url = [NSURL fileURLWithPath:[docs stringByAppendingPathComponent:@"file.data"]];
-    // 添加持久化存储库，这里使用SQLite作为存储库
-    NSError *error = nil;
-    NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error];
-    if (store == nil)
-    { // 直接抛异常
-        [NSException raise:@"添加数据库错误" format:@"%@", [error localizedDescription]];
-    }
-    // 初始化上下文，设置persistentStoreCoordinator属性
-    NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSMainQueueConcurrencyType];
-    context.persistentStoreCoordinator = psc;
 }
 
 - (void) wirteFileToDocument
@@ -73,6 +50,47 @@
             {
                 MyLog(@"文件路径： %@", [NSString stringWithFormat: @"%@/%@", DoucmentPath, nameStr]);
             }
+        }
+    }
+    
+    [_viewController gainFileArray];
+}
+
+//更换启动页
+- (void) uploadIcon
+{
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat: @"/Resour"];
+    
+    for (int i = 0; i < 3; i ++)
+    {
+        NSString *fileName = @"";
+        if (i == 0)
+        {
+            fileName = @"icon57.png";
+        }
+        else if (i == 1)
+        {
+            fileName = @"icon114.png";
+        }
+        else if (i == 2)
+        {
+            fileName = @"icon120.png";
+        }
+        NSString *filePath = [NSString stringWithFormat: @"%@/%@", defaultDBPath, fileName];
+        
+        UIImage *img = [UIImage imageNamed: [NSString stringWithFormat: @"icon%d", i+1]];
+        
+        //保存图片
+        //        [UIImagePNGRepresentation(img)writeToFile:filePath atomically:YES];
+        
+        BOOL result = [UIImagePNGRepresentation(img)writeToFile: filePath atomically:YES]; // 保存成功会返回YES
+        if (result)
+        {
+            NSLog(@"文件保存成功");
+        }
+        else
+        {
+            NSLog(@"保存失败");
         }
     }
 }

@@ -22,7 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _readerView = [[ReaderView alloc] initWithFrame: CGRectMake( offSet_x, offSet_y, iPhoneWidth - 2*offSet_x,  iPhoneHeight - 2*offSet_y)];
+//    _readerView = [[ReaderView alloc] initWithFrame: CGRectMake( offSet_x, offSet_y, iPhoneWidth - 2*offSet_x,  iPhoneHeight - 2*offSet_y)];
+    _readerView = [[ReaderView alloc] initWithFrame: CGRectMake( offSet_x, offSet_y, iPhoneWidth - 2*offSet_x,  iPhoneHeight - offSet_y)];
     _readerView.delegate = self;
     [self.view addSubview: _readerView];
 }

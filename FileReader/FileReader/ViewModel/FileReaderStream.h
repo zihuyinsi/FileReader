@@ -14,6 +14,7 @@ typedef void (^CompletionBlock)(NSInteger numOfLines);
 @interface FileReaderStream : NSObject
 
 - (id) initWithFilePath: (NSString *)filePath;
+- (id) initWithFilePath: (NSString *)filePath andNSStringEncoding: (NSStringEncoding)encodeing;
 
 - (void) enumerateLinesUsingBlock: (HandleBlock)block CompletionBlock: (CompletionBlock)completionBlock;
 

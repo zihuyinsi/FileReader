@@ -1,0 +1,1 @@
+../../../uchardet/src/nsGB2312Prober.h

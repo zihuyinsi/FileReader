@@ -54,5 +54,14 @@
  */
 + (BOOL) isChapter: (NSString *)isChapterStr;
 
+#pragma mark - 获取编码
+/**
+ *  获取文件编码格式
+ *
+ *  @param filePath  文件路径
+ *
+ *  @return  文件编码格式
+ */
++ (NSStringEncoding) gainEncodingWithFilePath: (NSString *)filePath;
 
 @end

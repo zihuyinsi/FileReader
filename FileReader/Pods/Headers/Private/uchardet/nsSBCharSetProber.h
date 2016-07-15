@@ -1,0 +1,1 @@
+../../../uchardet/src/nsSBCharSetProber.h

@@ -7,6 +7,8 @@
 //
 
 #import "FunctionTools.h"
+#include <uchardet.h>
+#define NUMBER_OF_SAMPLES (2048)
 
 @implementation FunctionTools
 
@@ -109,9 +111,85 @@
  */
 + (BOOL) isChapter: (NSString *)isChapterStr
 {
-    NSString *Chapter = @"第[ \t\n\x0B\f\r]*[0-9〇零一二三四五六七八九十百千]*[ \t\n\x0B\f\r]*[章回节卷集幕计部期].*";
+    NSString *Chapter = @"第?[ \t\n\x0B\f\r]{0,10}[0-9〇零一二三四五六七八九十百千]{0,20}[ \t\n\x0B\f\r]{0,10}[章回节卷集幕计部期].*";
     NSPredicate *chapterTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", Chapter];
     return [chapterTest evaluateWithObject: isChapterStr];
 }
+
+
+#pragma mark - 获取编码
+/**
+ *  获取文件编码格式
+ *
+ *  @param filePath  文件路径
+ *
+ *  @return  文件编码格式
+ */
++ (NSStringEncoding) gainEncodingWithFilePath: (NSString *)filePath
+{
+    FILE* file;
+    char buf[NUMBER_OF_SAMPLES];
+    size_t len;
+    uchardet_t ud;
+    
+    /* 打开被检测文本文件，并读取一定数量的样本字符 */
+    file = fopen([filePath UTF8String], "rt");
+    if (file==NULL)
+    {
+        printf("文件打开失败！\n");
+        return NSUTF8StringEncoding;
+    }
+    len = fread(buf, sizeof(char), NUMBER_OF_SAMPLES, file);
+    fclose(file);
+    
+    ud = uchardet_new();
+    if(uchardet_handle_data(ud, buf, len) != 0)
+    {
+        printf("分析编码失败！\n");
+        return NSUTF8StringEncoding;
+    }
+    uchardet_data_end(ud);
+    printf("文本的编码方式是%s。\n", uchardet_get_charset(ud));
+    const char *encode = uchardet_get_charset(ud);
+    uchardet_delete(ud);
+    
+    CFStringEncoding cfEncode = 0;
+    NSString *encodeStr=[[NSString alloc] initWithCString: encode encoding: NSUTF8StringEncoding];
+    if ([encodeStr isEqualToString:@"gb18030"])
+    {
+        cfEncode= kCFStringEncodingGB_18030_2000;
+    }
+    else if([encodeStr isEqualToString:@"Big5"])
+    {
+        cfEncode= kCFStringEncodingBig5;
+    }
+    else if([encodeStr isEqualToString:@"UTF-8"])
+    {
+        cfEncode= kCFStringEncodingUTF8;
+    }
+    else if([encodeStr isEqualToString:@"Shift_JIS"])
+    {
+        cfEncode= kCFStringEncodingShiftJIS;
+    }
+    else if([encodeStr isEqualToString:@"windows-1252"])
+    {
+        cfEncode= kCFStringEncodingWindowsLatin1;
+    }
+    else if([encodeStr isEqualToString:@"x-euc-tw"])
+    {
+        cfEncode= kCFStringEncodingEUC_TW;
+    }
+    else if([encodeStr isEqualToString:@"EUC-KR"])
+    {
+        cfEncode= kCFStringEncodingEUC_KR;
+    }
+    else if([encodeStr isEqualToString:@"EUC-JP"])
+    {
+        cfEncode= kCFStringEncodingEUC_JP;
+    }
+    NSStringEncoding fileEncoding = CFStringConvertEncodingToNSStringEncoding(cfEncode);
+    return fileEncoding;
+}
+
 
 @end
