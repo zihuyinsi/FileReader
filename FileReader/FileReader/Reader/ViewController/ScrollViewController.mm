@@ -93,19 +93,19 @@
         NSLog(@"fileInfo - name = %@, total = %@", fileInfo.chapterName, fileInfo.chapterTotal);
     }
 
-    [self beginChapterWithPath: _filePath andName: _chapterName];
+//    [self beginChapterWithPath: _filePath andName: _chapterName];
 
-//    if ([tempArray count] > 0)
-//    {
-//        File *fileInfo = tempArray[0];
-//        _totalChapter = [fileInfo.chapterTotal integerValue];
-//        [self chapterOk];
-//    }
-//    else
-//    {
-//        //分章失败或未分章
-//        [self beginChapterWithPath: _filePath andName: _chapterName];
-//    }
+    if ([tempArray count] > 0)
+    {
+        File *fileInfo = tempArray[0];
+        _totalChapter = [fileInfo.chapterTotal integerValue];
+        [self chapterOk];
+    }
+    else
+    {
+        //分章失败或未分章
+        [self beginChapterWithPath: _filePath andName: _chapterName];
+    }
 }
 
 - (void) beginChapterWithPath: (NSString *)filePath andName: (NSString *)fileName
