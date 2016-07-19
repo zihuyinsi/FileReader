@@ -116,11 +116,11 @@
 - (void)insertCoreData:(NSMutableArray*)dataArray
 {
     NSManagedObjectContext *context = [self managedObjectContext];
-    for (File *info in dataArray)
+    for (NSDictionary *info in dataArray)
     {
         File *fileInfo = [NSEntityDescription insertNewObjectForEntityForName: @"File" inManagedObjectContext:context];
-        fileInfo.chapterTotal = info.chapterTotal;
-        fileInfo.chapterName = info.chapterName;
+        fileInfo.chapterTotal = info[@"chapterTotal"];
+        fileInfo.chapterName = info[@"chapterName"];
         NSError *error;
         if(![context save:&error])
         {

@@ -218,9 +218,8 @@
          }
          else
          {
-             File *fileInfo = [NSEntityDescription insertNewObjectForEntityForName:@"File" inManagedObjectContext: coreManager.managedObjectContext];
-             fileInfo.chapterName = fileName;
-             fileInfo.chapterTotal = [NSNumber numberWithInteger: _totalChapter];
+             NSDictionary *fileInfo = [NSDictionary dictionaryWithObjectsAndKeys: fileName, @"chapterName", [NSNumber numberWithInteger: _totalChapter], @"chapterTotal", nil];
+             
              NSMutableArray *tempArr = [NSMutableArray arrayWithObject: fileInfo];
              //插入数据库
              [coreManager insertCoreData: tempArr];
